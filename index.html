@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>VueJS Exercise</title>
-    <meta name="author" content="">
+    <meta name="author" content="ESCUDERO AZNAR, Tomás">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,7 +25,20 @@
                - Display its "prompt" property in bold style
                - Display its "value" property in italic style
       -->
+      <h1 id="titulo">{{d.collection.title}}</h1>
 
+      <div v-for="pelicula in d.collection.items">
+        <ul>
+            <li>
+              <a v-bind:href="pelicula.href">Movie Reference</a>
+            </li>
+            <li v-for="campo in pelicula.data">
+              <b>{{campo.prompt}}: </b><i>{{campo.value}}</i>
+            </li>
+        </ul>
+      </div>
+
+      
     </div>
 
     <script src="js/script.js"></script>
