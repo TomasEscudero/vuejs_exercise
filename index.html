@@ -27,10 +27,10 @@
       -->
       <h1 id="titulo">{{d.collection.title}}</h1>
 
-      <div v-for="pelicula in d.collection.items">
+      <div id="divPeliculas" class="" v-for="pelicula in d.collection.items">
         <ul>
             <li>
-              <a v-bind:href="pelicula.href">Movie Reference</a>
+              <a v-bind:href="pelicula.href">{{pelicula.data[0].value}}</a>
             </li>
             <li v-for="campo in pelicula.data">
               <b>{{campo.prompt}}: </b><i>{{campo.value}}</i>
