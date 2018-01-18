@@ -30,17 +30,20 @@
       <div id="divListaPeliculas" class="row">
 
         <div class="card col-md-4" id="divPelicula" class="" v-for="pelicula in d.collection.items">
+            
+          <img class="card-img-top" v-for="campo in pelicula.data" v-if="campo.name=='image'" v-bind:src="campo.value" alt="Card image cap">
+            
             <div class="card-body">
 
                 <h5 class="card-title" v-for="campo in pelicula.data" v-if="campo.name=='name'">{{campo.value}}</h5>
 
                 <ul style="list-style:none;">                    
-                    <li class="card-text" v-for="campo in pelicula.data" v-if="campo.name!='name'">
+                    <li class="card-text" v-for="campo in pelicula.data" v-if="campo.name!='name'&&campo.name!='image'">
                       <b>{{campo.prompt}}: </b><i>{{campo.value}}</i>
                     </li>
                 </ul>
 
-                <a class="card-link btn btn-primary" v-for="campo in pelicula.data" v-if="campo.name=='name'" v-bind:href="pelicula.href">Enlace a la wikipedia de {{campo.value}}</a>
+                <a class="card-link btn btn-primary col-md-12" v-for="campo in pelicula.data" v-if="campo.name=='name'" v-bind:href="pelicula.href">Wikipedia de {{campo.value}}</a>
                 
             </div>  
           </div>
