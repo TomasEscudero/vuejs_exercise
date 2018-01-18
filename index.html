@@ -16,7 +16,7 @@
   <body>
 
     <!-- https://vuejs.org/v2/guide/index.html -->
-    <div id="app">
+    <div id="app" class="container">
       <!--
            TODO Show collection data. See js/script.js
            - Show collection Title
@@ -27,17 +27,24 @@
                - Display its "value" property in italic style
       -->
       <h1 id="titulo">{{d.collection.title}}</h1>
-      <div id="divListaPeliculas">
-          <div class="card" id="divPelicula" class="" v-for="pelicula in d.collection.items">
+      <div id="divListaPeliculas" class="row">
+
+        <div class="card col-md-4" id="divPelicula" class="" v-for="pelicula in d.collection.items">
             <div class="card-body">
+
+                <h5 class="card-title" v-for="campo in pelicula.data" v-if="campo.name=='name'">{{campo.value}}</h5>
+
                 <ul style="list-style:none;">                    
-                    <li class="card-text" v-for="campo in pelicula.data">
+                    <li class="card-text" v-for="campo in pelicula.data" v-if="campo.name!='name'">
                       <b>{{campo.prompt}}: </b><i>{{campo.value}}</i>
                     </li>
                 </ul>
-                <a class="card-link" v-bind:href="pelicula.href">Enlace a la wikipedia de {{pelicula.data[0].value}}</a>
+
+                <a class="card-link btn btn-primary" v-for="campo in pelicula.data" v-if="campo.name=='name'" v-bind:href="pelicula.href">Enlace a la wikipedia de {{campo.value}}</a>
+                
             </div>  
           </div>
+          
       </div>
     </div>
 
