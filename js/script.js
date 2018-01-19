@@ -39,7 +39,7 @@ var server_data = {
         ]
 	    }
     ]
-  }
+  }  
 };
 
 // Create a Vue app and pass the server data to the app
@@ -47,5 +47,19 @@ var app = new Vue({
   el: '#app',
   data: {
     d: server_data
+  },
+  methods: 
+  {    
+    tituloPelicula: function (pelicula) 
+    {  
+      for(var i = 0; i < pelicula.data.length; i++)
+      {
+        if(pelicula.data[i].name == 'name')
+        {
+          resultado = pelicula.data[i].value;
+        }
+      }   
+      return resultado;
+    }
   }
 });
