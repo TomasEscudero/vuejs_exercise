@@ -37,13 +37,15 @@
 
                 <h5 class="card-title">{{obtenerPropiedad(pelicula, "name")}}</h5>
 
+                <button class="btn btn-primary btn-block" v-on:click="buttonClick">Show</button>
+
                 <ul style="list-style:none;">                    
                     <li class="card-text" v-for="campo in pelicula.data" v-if="campo.name!='name'&&campo.name!='image'">
                       <b>{{campo.prompt}}: </b><i>{{campo.value}}</i>
                     </li>
                 </ul>
 
-                <a class="card-link btn btn-primary col-md-12" v-bind:href="pelicula.href">Wikipedia de {{obtenerPropiedad(pelicula, "name")}}</a>
+                <a class="card-link btn btn-primary btn-block" v-bind:href="pelicula.href">Wikipedia de {{obtenerPropiedad(pelicula, "name")}}</a>
                 
             </div>  
           </div>
