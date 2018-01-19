@@ -31,11 +31,11 @@
 
         <div class="card col-md-4" id="divPelicula" class="" v-for="pelicula in d.collection.items">
             
-          <img class="card-img-top" v-for="campo in pelicula.data" v-if="campo.name=='image'" v-bind:src="campo.value" alt="Card image cap">
+          <img class="card-img-top" v-bind:src="obtenerPropiedad(pelicula, 'image')" alt="Card image cap">
             
             <div class="card-body">
 
-                <h5 class="card-title" v-for="campo in pelicula.data" v-if="campo.name=='name'">{{tituloPelicula(pelicula)}}</h5>
+                <h5 class="card-title">{{obtenerPropiedad(pelicula, "name")}}</h5>
 
                 <ul style="list-style:none;">                    
                     <li class="card-text" v-for="campo in pelicula.data" v-if="campo.name!='name'&&campo.name!='image'">
@@ -43,7 +43,7 @@
                     </li>
                 </ul>
 
-                <a class="card-link btn btn-primary col-md-12" v-for="campo in pelicula.data" v-if="campo.name=='name'" v-bind:href="pelicula.href">Wikipedia de {{campo.value}}</a>
+                <a class="card-link btn btn-primary col-md-12" v-bind:href="pelicula.href">Wikipedia de {{obtenerPropiedad(pelicula, "name")}}</a>
                 
             </div>  
           </div>

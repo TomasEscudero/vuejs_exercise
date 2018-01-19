@@ -48,13 +48,14 @@ var app = new Vue({
   data: {
     d: server_data
   },
+
   methods: 
   {    
-    tituloPelicula: function (pelicula) 
+    obtenerPropiedad: function (pelicula, propiedad) 
     {  
       for(var i = 0; i < pelicula.data.length; i++)
       {
-        if(pelicula.data[i].name == 'name')
+        if(pelicula.data[i].name == propiedad)
         {
           resultado = pelicula.data[i].value;
         }
