@@ -53,6 +53,10 @@ var app = new Vue({
   {    
     obtenerPropiedad: function (pelicula, propiedad) 
     {  
+      //Version Funcional del codigo.
+      //var filtrado = pelicula.data.filter(function(e) {return e.name == campo})[0];
+      //return filtrado ? filtrado.value : "";
+      
       for(var i = 0; i < pelicula.data.length; i++)
       {
         if(pelicula.data[i].name == propiedad)
