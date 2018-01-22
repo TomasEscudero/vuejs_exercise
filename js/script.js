@@ -71,13 +71,17 @@ var app = new Vue({
     {
       var boton = event.target;
 
+      var lista = boton.nextElementSibling;
+
       if(boton.innerText == "Show")
       {
         boton.innerText = "Hide";
+        lista.style.display = "block";
       }
       else
       {
         boton.innerText = "Show";
+        lista.style.display = "none";
       }
     }
   }

@@ -37,7 +37,7 @@
 
                 <h5 class="card-title">{{obtenerPropiedad(pelicula, "name")}}</h5>
 
-                <button class="btn btn-primary btn-block" v-on:click="buttonClick">Show</button>
+                <button class="btn btn-primary btn-block" v-on:click="buttonClick">Hidden</button>
 
                 <ul style="list-style:none;">                    
                     <li class="card-text" v-for="campo in pelicula.data" v-if="campo.name!='name'&&campo.name!='image'">
